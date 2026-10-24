@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KURUKSHETRA</title>
+    <meta name="description" content="Witness the thirteenth day of the Kurukshetra War. Enter the deadly revolving maze of the Chakravyuha and rewrite the fate of warrior prince Abhimanyu in this cinematic game introduction.">
+    <meta name="keywords" content="Kurukshetra, Mahabharata, Chakravyuha, Abhimanyu, Drona, Ancient India, Game Prologue, Epic Battlefield">
+    <meta name="theme-color" content="#080706">
+
+    <!-- Google Fonts: English Serif & Classical Inscription Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Marcellus&display=swap" rel="stylesheet">
+
+    <!-- GSAP for Cinematic Scroll Triggers -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Canvas: Drifting Dust & Golden Battlefield Embers -->
+    <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+    <!-- Main Cinematic Flow -->
+    <main id="cinematic-prologue" class="cinematic-wrapper">
+
+        <!-- ============================================================ -->
+        <!-- ACT I — THE THIRTEENTH DAY                                   -->
+        <!-- ============================================================ -->
+        <section id="act-1" class="act-section act-thirteenth-day" aria-label="Act I: The Thirteenth Day">
+            <div class="act-backdrop" style="background-image: url('assets/images/hero_battlefield.jpg');"></div>
+            <div class="act-vignette"></div>
+            <div class="act-smoke-overlay"></div>
+
+            <div class="act-container">
+                <div class="act-frame-pillars" aria-hidden="true">
+                    <div class="frame-pillar left-pillar"></div>
+                    <div class="frame-pillar right-pillar"></div>
+                </div>
+
+                <div class="act-content-center">
+                    <div class="cinematic-kicker">
+                        <span class="kicker-line"></span>
+                        <span class="kicker-gem">✦</span>
+                        <span class="kicker-line"></span>
+                    </div>
+
+                    <h1 class="monumental-heading-glory">KURUKSHETRA</h1>
+
+                    <div class="gold-filigree-divider" aria-hidden="true">
+                        <svg viewBox="0 0 320 20" class="filigree-svg">
+                            <line x1="10" y1="10" x2="120" y2="10" stroke="url(#goldLineGrad)" stroke-width="1.5" />
+                            <circle cx="130" cy="10" r="3" fill="#E3BC73" />
+                            <polygon points="160,2 168,10 160,18 152,10" fill="url(#goldLineGrad)" />
+                            <circle cx="190" cy="10" r="3" fill="#E3BC73" />
+                            <line x1="200" y1="10" x2="310" y2="10" stroke="url(#goldLineGrad)" stroke-width="1.5" />
+                            <defs>
+                                <linearGradient id="goldLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#C9A45C" stop-opacity="0" />
+                                    <stop offset="50%" stop-color="#E3BC73" stop-opacity="1" />
+                                    <stop offset="100%" stop-color="#C9A45C" stop-opacity="0" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+
+                    <p class="cinematic-proclamation">THE WAR HAS ENTERED ITS DARKEST HOUR.</p>
+
+                    <p class="cinematic-intro-narrative">
+                        Across the sun-baked plains of Kurukshetra, the horizon burns with dust, smoke, and crimson sunset. Eighteen Akshauhini divisions stand arrayed in bitter conflict. But as the shadows lengthen on the thirteenth dusk, an ominous silence descends upon the sacred battlefield.
+                    </p>
+
+                    <div class="scroll-prompt" aria-hidden="true">
+                        <span class="scroll-prompt-text">SCROLL TO WITNESS THE FORMATION</span>
+                        <div class="scroll-chevron">▼</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ACT II — THE CHAKRAVYUHA                                    -->
+        <!-- ============================================================ -->
+        <section id="act-2" class="act-section act-chakravyuha" aria-label="Act II: The Chakravyuha">
+            <div class="act-container">
+                <div class="act-header-carved">
+                    <div class="cinematic-kicker">
+                        <span class="kicker-line"></span>
+                        <span class="kicker-gem">✦</span>
+                        <span class="kicker-line"></span>
+                    </div>
+                    <h2 class="act-title">THE CHAKRAVYUHA</h2>
+                    <p class="act-subtitle">The Clockwork Labyrinth of Iron and Death</p>
+                </div>
+
+                <!-- Chakravyuha Visual Showcase -->
+                <div class="chakravyuha-showcase">
+                    <div class="formation-media-box">
+                        <img src="assets/images/chakravyuha_formation.jpg" alt="Aerial perspective of the colossal seven-ring Chakravyuha military formation at Kurukshetra" class="formation-image" loading="lazy">
+                        <div class="formation-overlay-rings" aria-hidden="true">
+                            <div class="concentric-ring ring-1"></div>
+                            <div class="concentric-ring ring-2"></div>
+                            <div class="concentric-ring ring-3"></div>
+                            <div class="concentric-ring ring-4"></div>
+                            <div class="concentric-ring ring-5"></div>
+                            <div class="concentric-ring ring-6"></div>
+                            <div class="concentric-ring ring-7"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Four Cinematic Story Beats -->
+                <div class="narrative-beats-grid">
+                    <div class="narrative-beat-card">
+                        <div class="beat-corner top-left"></div>
+                        <div class="beat-corner top-right"></div>
+                        <div class="beat-corner bottom-left"></div>
+                        <div class="beat-corner bottom-right"></div>
+                        <div class="beat-number">01</div>
+                        <h3 class="beat-title">THE FORMATION EMERGES</h3>
+                        <p class="beat-text">
+                            On the thirteenth day of the Kurukshetra War, the crimson soil of the battlefield groans under the weight of an unprecedented terror: the Chakravyuha, a vast, spinning clockwork maze of soldiers, war elephants, and impenetrable iron formations designed by Guru Drona to systematically crush the Pandava army.
+                        </p>
+                    </div>
+
+                    <div class="narrative-beat-card">
+                        <div class="beat-corner top-left"></div>
+                        <div class="beat-corner top-right"></div>
+                        <div class="beat-corner bottom-left"></div>
+                        <div class="beat-corner bottom-right"></div>
+                        <div class="beat-number">02</div>
+                        <h3 class="beat-title">ARJUNA IS ABSENT</h3>
+                        <p class="beat-text">
+                            With Arjuna lured far away to the southern front by the Samsaptaka oath-bound warriors, the ancient trap moves forward unchallenged, grinding through Pandava divisions and threatening to bring an absolute end to the war before dusk.
+                        </p>
+                    </div>
+
+                    <div class="narrative-beat-card">
+                        <div class="beat-corner top-left"></div>
+                        <div class="beat-corner top-right"></div>
+                        <div class="beat-corner bottom-left"></div>
+                        <div class="beat-corner bottom-right"></div>
+                        <div class="beat-number">03</div>
+                        <h3 class="beat-title">ABHIMANYU IS SUMMONED</h3>
+                        <p class="beat-text">
+                            Desperate to halt its murderous advance, King Yudhisthira turns to Arjuna's sixteen-year-old son, Abhimanyu—the only warrior present in the entire army who possesses the sacred knowledge to pierce the revolving outer rings of Drona's formation.
+                        </p>
+                    </div>
+
+                    <div class="narrative-beat-card">
+                        <div class="beat-corner top-left"></div>
+                        <div class="beat-corner top-right"></div>
+                        <div class="beat-corner bottom-left"></div>
+                        <div class="beat-corner bottom-right"></div>
+                        <div class="beat-number">04</div>
+                        <h3 class="beat-title">THE DANGEROUS PROMISE</h3>
+                        <p class="beat-text">
+                            Though Abhimanyu warns with solemn honesty that he knows only how to enter the deadly labyrinth and not how to break back out, Yudhisthira vows upon his honor to follow close behind his golden chariot to keep the breach open.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ACT III — THE PROMISE (Cinematic Dialogue)                    -->
+        <!-- ============================================================ -->
+        <section id="act-3" class="act-section act-promise" aria-label="Act III: The Promise">
+            <div class="act-container">
+                <div class="act-header-carved">
+                    <div class="cinematic-kicker">
+                        <span class="kicker-line"></span>
+                        <span class="kicker-gem">✦</span>
+                        <span class="kicker-line"></span>
+                    </div>
+                    <h2 class="act-title">THE PROMISE</h2>
+                    <p class="act-subtitle">A Vow Forged in Desperation and Blood</p>
+                </div>
+
+                <div class="dialogue-cinematic-scene">
+                    <div class="dialogue-visual-frame">
+                        <img src="assets/images/dialogue_promise.jpg" alt="King Yudhisthira speaking with solemn grief to young prince Abhimanyu on the battlefield" class="dialogue-image" loading="lazy">
+                        <div class="dialogue-lighting-gradient"></div>
+                    </div>
+
+                    <div class="dialogue-subtitles-stream">
+                        <div class="dialogue-block yudhisthira-block">
+                            <div class="speaker-tag">
+                                <span class="speaker-gem">✦</span>
+                                <span class="speaker-name">YUDHISTHIRA</span>
+                            </div>
+                            <blockquote class="dialogue-quote">
+                                "Abhimanyu! My child... we cannot breach their wall. If Drona's wheel advances, the war ends today. Can you lead us through?"
+                            </blockquote>
+                        </div>
+
+                        <div class="dialogue-block abhimanyu-block">
+                            <div class="speaker-tag">
+                                <span class="speaker-gem">✦</span>
+                                <span class="speaker-name">ABHIMANYU</span>
+                            </div>
+                            <blockquote class="dialogue-quote">
+                                "I know how to pierce the heart of the wheel, Uncle. But... I do not know how to come back out."
+                            </blockquote>
+                        </div>
+
+                        <div class="dialogue-block yudhisthira-block">
+                            <div class="speaker-tag">
+                                <span class="speaker-gem">✦</span>
+                                <span class="speaker-name">YUDHISTHIRA</span>
+                            </div>
+                            <blockquote class="dialogue-quote">
+                                "Break the breach! We will follow right behind you, child. You will not stand alone!"
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ACT IV — THE SEVENTH CIRCLE                                  -->
+        <!-- ============================================================ -->
+        <section id="act-4" class="act-section act-seventh-circle" aria-label="Act IV: The Seventh Circle">
+            <div class="act-container">
+                <div class="act-header-carved">
+                    <div class="cinematic-kicker">
+                        <span class="kicker-line"></span>
+                        <span class="kicker-gem">✦</span>
+                        <span class="kicker-line"></span>
+                    </div>
+                    <h2 class="act-title danger-glow-title">THE SEVENTH CIRCLE</h2>
+                    <p class="act-subtitle">The Breach Closed. The Final Stand of the Isolated Prince.</p>
+                </div>
+
+                <div class="seventh-circle-composition">
+                    <div class="seventh-circle-image-box">
+                        <img src="assets/images/seventh_circle_stand.jpg" alt="Abhimanyu trapped in the seventh circle of the Chakravyuha holding a heavy chariot wheel aloft as a shield" class="seventh-image" loading="lazy">
+                        <div class="crimson-isolation-overlay"></div>
+                    </div>
+
+                    <div class="seventh-circle-narrative-flow">
+                        <div class="tragedy-beat-item">
+                            <div class="tragedy-indicator">01</div>
+                            <div class="tragedy-content">
+                                <h4>THE CHARIOT SURGES</h4>
+                                <p>Abhimanyu's golden chariot surges forward, his bow tearing through six concentric rings of the Kaurava line with unyielding ferocity.</p>
+                            </div>
+                        </div>
+
+                        <div class="tragedy-beat-item betrayal-highlight">
+                            <div class="tragedy-indicator">02</div>
+                            <div class="tragedy-content">
+                                <h4>THE ENTRANCE IS SEALED</h4>
+                                <p>But a sudden, deafening crash echoes behind him as King Jayadratha seals the entrance, severing the Pandava army from the breach and trapping young Abhimanyu completely alone within the deadly seventh circle.</p>
+                            </div>
+                        </div>
+
+                        <div class="tragedy-beat-item">
+                            <div class="tragedy-indicator">03</div>
+                            <div class="tragedy-content">
+                                <h4>THE CODE DESTROYED</h4>
+                                <p>The rules of honorable war vanish in an instant as seven legendary commanders—Karna, Drona, and Duryodhana among them—encircle the isolated prince.</p>
+                            </div>
+                        </div>
+
+                        <div class="tragedy-beat-item">
+                            <div class="tragedy-indicator">04</div>
+                            <div class="tragedy-content">
+                                <h4>THE CHARIOT WHEEL</h4>
+                                <p>His bow is shattered, his horses are slain, and he is forced to make a desperate stand with only a chariot wheel as a shield.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ACT V — REWRITE FATE                                         -->
+        <!-- ============================================================ -->
+        <section id="act-5" class="act-section act-rewrite-fate" aria-label="Act V: Rewrite Fate">
+            <div class="act-container">
+                <div class="fate-announcement-wrapper">
+                    <div class="fate-line-upper">HISTORY DEMANDS HIS FALL.</div>
+                    <div class="fate-divider-pulse" aria-hidden="true"></div>
+                    <div class="fate-line-lower">BUT TODAY, FATE IS IN YOUR HANDS.</div>
+                </div>
+
+                <div class="mission-briefing-panel">
+                    <div class="mission-stone-border">
+                        <div class="mission-kicker">THE PLAYER'S MISSION</div>
+                        <h3 class="mission-heading">ESCAPE THE CHAKRAVYUHA</h3>
+                        
+                        <div class="mission-text-group">
+                            <p class="mission-lead">
+                                The trap is sprung. The exit is sealed. Abhimanyu stands alone within the deadly Chakravyuha.
+                            </p>
+                            <p class="mission-body">
+                                History remembers his courage and his sacrifice. But this time, you have the power to change the ending.
+                            </p>
+                            <p class="mission-highlight">
+                                Guide Abhimanyu through the moving formations, escape the deadly labyrinth, and rewrite the fate of Kurukshetra.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ACT VI — THE RULES OF THE CHAKRAVYUHA                        -->
+        <!-- ============================================================ -->
+        <section id="act-6" class="act-section act-rules" aria-label="Act VI: The Rules of the Chakravyuha">
+            <div class="act-container">
+                <div class="act-header-carved">
+                    <div class="cinematic-kicker">
+                        <span class="kicker-line"></span>
+                        <span class="kicker-gem">✦</span>
+                        <span class="kicker-line"></span>
+                    </div>
+                    <h2 class="act-title">THE RULES OF THE CHAKRAVYUHA</h2>
+                    <p class="act-subtitle">Ancient Formations Translated into Labyrinth Mechanics</p>
+                </div>
+
+                <!-- Rules Presentation Panel -->
+                <div class="rules-stone-tablet">
+                    <div class="rules-grid">
+                        <div class="rule-column">
+                            <div class="rule-box">
+                                <div class="rule-badge">RULE I</div>
+                                <h3 class="rule-name">ESCAPE THE FORMATION</h3>
+                                <p class="rule-explanation">
+                                    The player must guide the ball out of the maze using the keyboard arrow keys.
+                                </p>
+                            </div>
+
+                            <div class="rule-box">
+                                <div class="rule-badge">RULE II</div>
+                                <h3 class="rule-name">AVOID THE MOVING PADDLES</h3>
+                                <p class="rule-explanation">
+                                    The moving rectangular obstacles represent the shifting formations of the Chakravyuha. If the ball touches any moving paddle, it is immediately returned to the center.
+                                </p>
+                            </div>
+
+                            <div class="rule-box">
+                                <div class="rule-badge">RULE III</div>
+                                <h3 class="rule-name">UNLIMITED ATTEMPTS</h3>
+                                <p class="rule-explanation">
+                                    There is no limit to the number of attempts. Every collision returns the ball to the center, allowing the player to try again.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Natural Keyboard Control Layout -->
+                        <div class="controls-column">
+                            <div class="controls-display-box">
+                                <div class="controls-heading">DIRECTIONAL CONTROLS</div>
+                                
+                                <div class="keyboard-layout" aria-label="Keyboard Arrow Controls">
+                                    <div class="key-row row-top">
+                                        <div class="keycap keycap-up">
+                                            <span class="key-symbol">↑</span>
+                                            <span class="key-label">Up</span>
+                                        </div>
+                                    </div>
+                                    <div class="key-row row-bottom">
+                                        <div class="keycap keycap-left">
+                                            <span class="key-symbol">←</span>
+                                            <span class="key-label">Left</span>
+                                        </div>
+                                        <div class="keycap keycap-down">
+                                            <span class="key-symbol">↓</span>
+                                            <span class="key-label">Down</span>
+                                        </div>
+                                        <div class="keycap keycap-right">
+                                            <span class="key-symbol">→</span>
+                                            <span class="key-label">Right</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="controls-note">
+                                    Keyboard arrow keys govern navigation through the shifting maze barriers.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- FINAL SCREEN — KURUKSHETRA TITLE SCREEN                      -->
+        <!-- ============================================================ -->
+        <section id="act-final" class="act-section act-final-title" aria-label="Final Screen: Kurukshetra Game Title Screen">
+            <div class="title-screen-backdrop" style="background-image: url('assets/images/monumental_torana.jpg');"></div>
+            <div class="title-screen-overlay"></div>
+
+            <div class="title-screen-container">
+                <!-- Monumental Architectural Framing -->
+                <div class="monumental-pillars-framing" aria-hidden="true">
+                    <div class="monumental-pillar left"></div>
+                    <div class="monumental-pillar right"></div>
+                </div>
+
+                <!-- Slow-Rotating 7-Ring Chakravyuha in Background -->
+                <div class="title-chakravyuha-bg" id="titleChakraBg" aria-hidden="true">
+                    <svg viewBox="0 0 600 600" class="title-wheel-svg">
+                        <circle cx="300" cy="300" r="280" fill="none" stroke="rgba(201, 164, 92, 0.25)" stroke-width="1.5" stroke-dasharray="6, 8" />
+                        <circle cx="300" cy="300" r="245" fill="none" stroke="rgba(227, 188, 115, 0.3)" stroke-width="2" />
+                        <circle cx="300" cy="300" r="210" fill="none" stroke="rgba(142, 48, 33, 0.4)" stroke-width="1.5" stroke-dasharray="10, 6" />
+                        <circle cx="300" cy="300" r="175" fill="none" stroke="rgba(201, 164, 92, 0.35)" stroke-width="2" />
+                        <circle cx="300" cy="300" r="140" fill="none" stroke="rgba(227, 188, 115, 0.4)" stroke-width="1.5" />
+                        <circle cx="300" cy="300" r="105" fill="none" stroke="rgba(142, 48, 33, 0.5)" stroke-width="2" />
+                        <circle cx="300" cy="300" r="70" fill="none" stroke="rgba(227, 188, 115, 0.6)" stroke-width="2.5" />
+                        <circle cx="300" cy="300" r="25" fill="rgba(201, 164, 92, 0.25)" stroke="#E3BC73" stroke-width="2" />
+                        <g stroke="rgba(201, 164, 92, 0.25)" stroke-width="1.2">
+                            <line x1="300" y1="20" x2="300" y2="580" />
+                            <line x1="20" y1="300" x2="580" y2="300" />
+                            <line x1="102" y1="102" x2="498" y2="498" />
+                            <line x1="102" y1="498" x2="498" y2="102" />
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="title-content-center">
+                    <div class="title-eyebrow">THE CHAKRAVYUHA</div>
+
+                    <!-- Enormous Cinematic Main Title -->
+                    <h1 class="grand-game-title">
+                        <span>K</span><span>U</span><span>R</span><span>U</span><span>K</span><span>S</span><span>H</span><span>E</span><span>T</span><span>R</span><span>A</span>
+                    </h1>
+
+                    <div class="grand-subtitle">
+                        BREAK THE CHAKRAVYUHA. REWRITE DESTINY.
+                    </div>
+
+                    <!-- EXACTLY ONE INTERACTIVE BUTTON ON ENTIRE WEBSITE -->
+                    <div class="sole-button-wrapper">
+                        <button id="primaryPlayBtn" class="ceremonial-play-button" type="button" aria-label="Press any button to play">
+                            <span class="btn-corner-engraving top-l"></span>
+                            <span class="btn-corner-engraving top-r"></span>
+                            <span class="btn-corner-engraving bottom-l"></span>
+                            <span class="btn-corner-engraving bottom-r"></span>
+                            
+                            <span class="btn-sheen-sweep" aria-hidden="true"></span>
+                            <span class="btn-primary-text">[ PRESS ANY BUTTON TO PLAY ]</span>
+                        </button>
+                    </div>
+
+                    <div class="game-version-tag">
+                        PREVIEW INTRODUCTION &bull; BHARATA CHRONICLES
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Cultural Inspiration Disclaimer (English Only, Non-Interactive) -->
+    <footer class="prologue-footer" role="contentinfo">
+        <div class="footer-container">
+            <p class="footer-note">
+                © All Rights reserved to HAFLIX  
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

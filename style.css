@@ -1,0 +1,1239 @@
+/* ===================================================================
+   KURUKSHETRA — THE CHAKRAVYUHA
+   A Cinematic, Story-Driven Game Introduction
+   English Only • Ancient Bharata Craft • Dark Cinematic Mythology
+   =================================================================== */
+
+:root {
+    /* Color Palette */
+    --color-obsidian: #080706;
+    --color-charcoal: #17110D;
+    --color-bronze-dark: #68462B;
+    --color-bronze-deep: #241810;
+    --color-gold-antique: #C9A45C;
+    --color-gold-burnished: #E3BC73;
+    --color-gold-radiant: #F7D590;
+    --color-vermilion-deep: #8E3021;
+    --color-vermilion-glow: rgba(142, 48, 33, 0.5);
+    --color-ivory: #E8DDC8;
+    --color-sandstone: #9C8D79;
+    --color-sandstone-dark: #5A4E40;
+
+    /* Gradients */
+    --grad-gold-metallic: linear-gradient(135deg, #A88438 0%, #E3BC73 40%, #FFF2C7 50%, #C9A45C 70%, #7A581C 100%);
+    --grad-bronze-gold: linear-gradient(180deg, #E3BC73 0%, #C9A45C 45%, #68462B 100%);
+    --grad-crimson-threat: linear-gradient(180deg, rgba(142, 48, 33, 0.3) 0%, rgba(8, 7, 6, 0.95) 100%);
+
+    /* Shadows & Glows */
+    --glow-gold-soft: 0 0 20px rgba(201, 164, 92, 0.25);
+    --glow-gold-intense: 0 0 35px rgba(227, 188, 115, 0.5), 0 0 70px rgba(201, 164, 92, 0.25);
+    --glow-vermilion: 0 0 35px rgba(142, 48, 33, 0.6);
+    --shadow-deep: 0 20px 45px rgba(0, 0, 0, 0.9);
+
+    /* Typography */
+    --font-heading-cinematic: 'Cinzel Decorative', 'Cinzel', serif;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Marcellus', serif;
+    --font-literary: 'Cormorant Garamond', serif;
+
+    /* Layout */
+    --max-width: 1280px;
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-snappy: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===================================================================
+   RESET & BASE STYLES
+   =================================================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-obsidian);
+    color: var(--color-ivory);
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--color-obsidian);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--color-ivory);
+    overflow-x: hidden;
+    position: relative;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: var(--color-vermilion-deep);
+    color: var(--color-gold-radiant);
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-track {
+    background: #080706;
+}
+::-webkit-scrollbar-thumb {
+    background: #3A2B1E;
+    border-radius: 4px;
+    border: 1px solid rgba(201, 164, 92, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold-antique);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+}
+
+/* Ambient Canvas */
+.ambient-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.8;
+}
+
+/* Container */
+.cinematic-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.act-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem;
+    overflow: hidden;
+}
+
+.act-container {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+}
+
+/* Common Kicker and Divider */
+.cinematic-kicker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.kicker-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold-antique), transparent);
+}
+
+.kicker-text {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--color-gold-burnished);
+    text-transform: uppercase;
+}
+
+.kicker-gem {
+    color: var(--color-gold-burnished);
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+.act-header-carved {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.act-title {
+    font-family: var(--font-heading-cinematic);
+    font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: var(--grad-gold-metallic);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.95));
+    margin-bottom: 0.6rem;
+}
+
+.act-title.danger-glow-title {
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 25px rgba(142, 48, 33, 0.6));
+}
+
+.act-subtitle {
+    font-family: var(--font-literary);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--color-sandstone);
+    letter-spacing: 0.05em;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* ===================================================================
+   ACT I — THE THIRTEENTH DAY
+   =================================================================== */
+
+.act-thirteenth-day {
+    min-height: 100vh;
+    text-align: center;
+}
+
+.act-backdrop {
+    position: absolute;
+    inset: -5%;
+    background-size: cover;
+    background-position: center bottom;
+    z-index: 1;
+    filter: brightness(0.65) contrast(1.15);
+    transform: scale(1.03);
+}
+
+.act-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 15%, rgba(8, 7, 6, 0.75) 60%, #080706 95%);
+    z-index: 2;
+}
+
+.act-smoke-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 7, 6, 0.3) 0%, rgba(8, 7, 6, 0.85) 85%, #080706 100%);
+    z-index: 2;
+}
+
+.act-frame-pillars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.frame-pillar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+}
+
+.frame-pillar.left-pillar {
+    left: 0;
+    background: linear-gradient(90deg, rgba(8, 7, 6, 0.9) 0%, rgba(23, 17, 13, 0.3) 70%, transparent 100%);
+    border-right: 1px solid rgba(201, 164, 92, 0.15);
+}
+
+.frame-pillar.right-pillar {
+    right: 0;
+    background: linear-gradient(-90deg, rgba(8, 7, 6, 0.9) 0%, rgba(23, 17, 13, 0.3) 70%, transparent 100%);
+    border-left: 1px solid rgba(201, 164, 92, 0.15);
+}
+
+.act-content-center {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.monumental-heading-glory {
+    font-family: var(--font-heading-cinematic);
+    font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    background: var(--grad-gold-metallic);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 30px rgba(201, 164, 92, 0.4));
+    margin-bottom: 0.8rem;
+}
+
+.gold-filigree-divider {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.filigree-svg {
+    width: 300px;
+    height: 20px;
+}
+
+.cinematic-proclamation {
+    font-family: var(--font-heading);
+    font-size: clamp(0.95rem, 1.8vw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    color: var(--color-gold-burnished);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(227, 188, 115, 0.4);
+}
+
+.cinematic-intro-narrative {
+    font-family: var(--font-literary);
+    font-size: 1.25rem;
+    color: var(--color-ivory);
+    line-height: 1.8;
+    max-width: 780px;
+    margin-bottom: 3.5rem;
+}
+
+.scroll-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-sandstone);
+    opacity: 0.75;
+}
+
+.scroll-prompt-text {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+}
+
+.scroll-chevron {
+    font-size: 0.8rem;
+    color: var(--color-gold-antique);
+    animation: bounceSlow 2s infinite ease-in-out;
+}
+
+@keyframes bounceSlow {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(6px); }
+    60% { transform: translateY(3px); }
+}
+
+/* ===================================================================
+   ACT II — THE CHAKRAVYUHA
+   =================================================================== */
+
+.act-chakravyuha {
+    background: linear-gradient(180deg, #080706 0%, #150E09 50%, #080706 100%);
+}
+
+.chakravyuha-showcase {
+    position: relative;
+    max-width: 1040px;
+    margin: 0 auto 4rem;
+}
+
+.formation-media-box {
+    position: relative;
+    border: 1px solid var(--color-gold-antique);
+    padding: 0.8rem;
+    background: #140E0A;
+    box-shadow: var(--shadow-deep), 0 0 40px rgba(0, 0, 0, 0.9);
+}
+
+.formation-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.formation-overlay-rings {
+    position: absolute;
+    inset: 0.8rem;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.concentric-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px dashed rgba(227, 188, 115, 0.25);
+    animation: rotateSlow 80s linear infinite;
+}
+
+.concentric-ring.ring-1 { width: 90%; height: 90%; animation-duration: 90s; }
+.concentric-ring.ring-2 { width: 75%; height: 75%; animation-duration: 75s; animation-direction: reverse; }
+.concentric-ring.ring-3 { width: 60%; height: 60%; animation-duration: 60s; }
+.concentric-ring.ring-4 { width: 45%; height: 45%; animation-duration: 50s; animation-direction: reverse; }
+.concentric-ring.ring-5 { width: 32%; height: 32%; animation-duration: 40s; }
+.concentric-ring.ring-6 { width: 20%; height: 20%; animation-duration: 30s; animation-direction: reverse; }
+.concentric-ring.ring-7 {
+    width: 10%;
+    height: 10%;
+    border-color: rgba(142, 48, 33, 0.6);
+    background: radial-gradient(circle, rgba(142, 48, 33, 0.25) 0%, transparent 80%);
+}
+
+@keyframes rotateSlow {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 4 Narrative Beats Grid */
+.narrative-beats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.narrative-beat-card {
+    position: relative;
+    background: radial-gradient(circle at top left, #201711 0%, #130D09 70%, #080706 100%);
+    border: 1px solid rgba(201, 164, 92, 0.28);
+    padding: 2.8rem 2.2rem;
+    box-shadow: var(--shadow-deep);
+    transition: var(--transition-smooth);
+}
+
+.narrative-beat-card:hover {
+    border-color: var(--color-gold-burnished);
+    transform: translateY(-4px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.95), 0 0 25px rgba(201, 164, 92, 0.2);
+}
+
+.beat-corner {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-color: var(--color-gold-burnished);
+    border-style: solid;
+    pointer-events: none;
+}
+.beat-corner.top-left { top: 4px; left: 4px; border-width: 2px 0 0 2px; }
+.beat-corner.top-right { top: 4px; right: 4px; border-width: 2px 2px 0 0; }
+.beat-corner.bottom-left { bottom: 4px; left: 4px; border-width: 0 0 2px 2px; }
+.beat-corner.bottom-right { bottom: 4px; right: 4px; border-width: 0 2px 2px 0; }
+
+.beat-number {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--color-gold-burnished);
+    margin-bottom: 0.6rem;
+    opacity: 0.8;
+}
+
+.beat-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #FFF2C7;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.beat-text {
+    font-family: var(--font-literary);
+    font-size: 1.12rem;
+    color: var(--color-ivory);
+    line-height: 1.8;
+}
+
+/* ===================================================================
+   ACT III — THE PROMISE (Cinematic Dialogue)
+   =================================================================== */
+
+.act-promise {
+    background: #090604;
+}
+
+.dialogue-cinematic-scene {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.dialogue-visual-frame {
+    position: relative;
+    border: 1px solid var(--color-gold-antique);
+    padding: 0.8rem;
+    background: #140E0A;
+    box-shadow: var(--shadow-deep);
+}
+
+.dialogue-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.dialogue-lighting-gradient {
+    position: absolute;
+    inset: 0.8rem;
+    background: linear-gradient(180deg, transparent 65%, rgba(8, 7, 6, 0.85) 100%);
+    pointer-events: none;
+}
+
+.dialogue-subtitles-stream {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+}
+
+.dialogue-block {
+    position: relative;
+    background: rgba(23, 17, 13, 0.85);
+    border-left: 3px solid var(--color-gold-antique);
+    padding: 1.6rem 2rem;
+    box-shadow: var(--shadow-deep);
+    backdrop-filter: blur(8px);
+}
+
+.dialogue-block.abhimanyu-block {
+    border-left-color: var(--color-gold-radiant);
+    background: rgba(30, 20, 14, 0.9);
+}
+
+.speaker-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.speaker-gem {
+    color: var(--color-gold-burnished);
+    font-size: 0.8rem;
+}
+
+.speaker-name {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    color: var(--color-gold-burnished);
+    text-transform: uppercase;
+}
+
+.dialogue-quote {
+    font-family: var(--font-literary);
+    font-style: italic;
+    font-size: 1.35rem;
+    line-height: 1.65;
+    color: var(--color-ivory);
+}
+
+/* ===================================================================
+   ACT IV — THE SEVENTH CIRCLE
+   =================================================================== */
+
+.act-seventh-circle {
+    background: linear-gradient(180deg, #090604 0%, #160B08 50%, #080706 100%);
+}
+
+.seventh-circle-composition {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.seventh-circle-image-box {
+    position: relative;
+    border: 1px solid var(--color-vermilion-deep);
+    padding: 0.8rem;
+    background: #140806;
+    box-shadow: var(--shadow-deep), 0 0 30px rgba(142, 48, 33, 0.35);
+}
+
+.seventh-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.crimson-isolation-overlay {
+    position: absolute;
+    inset: 0.8rem;
+    background: radial-gradient(circle at center, transparent 40%, rgba(142, 48, 33, 0.4) 90%, rgba(8, 7, 6, 0.85) 100%);
+    pointer-events: none;
+}
+
+.seventh-circle-narrative-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.tragedy-beat-item {
+    display: flex;
+    gap: 1.4rem;
+    background: rgba(23, 17, 13, 0.65);
+    border: 1px solid rgba(201, 164, 92, 0.2);
+    padding: 1.5rem;
+    border-radius: 2px;
+}
+
+.tragedy-beat-item.betrayal-highlight {
+    border-color: var(--color-vermilion-deep);
+    background: rgba(142, 48, 33, 0.15);
+    box-shadow: 0 0 20px rgba(142, 48, 33, 0.25);
+}
+
+.tragedy-indicator {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-gold-burnished);
+    opacity: 0.7;
+}
+
+.tragedy-beat-item.betrayal-highlight .tragedy-indicator {
+    color: #FF7766;
+    opacity: 1;
+}
+
+.tragedy-content h4 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #FFF2C7;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+}
+
+.tragedy-beat-item.betrayal-highlight h4 {
+    color: #FFB3A6;
+}
+
+.tragedy-content p {
+    font-family: var(--font-literary);
+    font-size: 1.05rem;
+    color: var(--color-ivory);
+    line-height: 1.65;
+}
+
+/* ===================================================================
+   ACT V — REWRITE FATE
+   =================================================================== */
+
+.act-rewrite-fate {
+    background: radial-gradient(circle at center, #1E130B 0%, #110B07 60%, #080706 100%);
+    text-align: center;
+}
+
+.fate-announcement-wrapper {
+    margin-bottom: 4rem;
+}
+
+.fate-line-upper {
+    font-family: var(--font-heading-cinematic);
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    color: var(--color-sandstone);
+    text-transform: uppercase;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+.fate-divider-pulse {
+    width: 140px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-gold-burnished), transparent);
+    margin: 1.8rem auto;
+    box-shadow: 0 0 12px var(--color-gold-burnished);
+}
+
+.fate-line-lower {
+    font-family: var(--font-heading-cinematic);
+    font-size: clamp(1.65rem, 3.4vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    background: var(--grad-gold-metallic);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 35px rgba(227, 188, 115, 0.5));
+    text-transform: uppercase;
+}
+
+.mission-briefing-panel {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.mission-stone-border {
+    position: relative;
+    background: rgba(23, 17, 13, 0.85);
+    border: 1px solid var(--color-gold-antique);
+    padding: 3.5rem 3rem;
+    box-shadow: var(--shadow-deep), 0 0 40px rgba(201, 164, 92, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.mission-kicker {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--color-gold-antique);
+    margin-bottom: 0.6rem;
+}
+
+.mission-heading {
+    font-family: var(--font-heading-cinematic);
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #FFF2C7;
+    margin-bottom: 1.8rem;
+    text-transform: uppercase;
+}
+
+.mission-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.mission-lead {
+    font-family: var(--font-literary);
+    font-size: 1.35rem;
+    color: var(--color-ivory);
+    line-height: 1.7;
+}
+
+.mission-body {
+    font-size: 1.15rem;
+    color: var(--color-sandstone);
+    line-height: 1.8;
+}
+
+.mission-highlight {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-gold-radiant);
+    line-height: 1.7;
+    border-top: 1px solid rgba(201, 164, 92, 0.25);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+/* ===================================================================
+   ACT VI — THE RULES OF THE CHAKRAVYUHA
+   =================================================================== */
+
+.act-rules {
+    background: #080706;
+}
+
+.rules-stone-tablet {
+    position: relative;
+    background: radial-gradient(circle at center, #1B120B 0%, #110B07 70%, #080706 100%);
+    border: 1px solid var(--color-gold-antique);
+    padding: 4rem 3.5rem;
+    box-shadow: var(--shadow-deep);
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.rule-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.rule-box {
+    background: rgba(8, 7, 6, 0.55);
+    border-left: 3px solid var(--color-gold-burnished);
+    padding: 1.4rem 1.8rem;
+}
+
+.rule-badge {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--color-gold-antique);
+    margin-bottom: 0.3rem;
+}
+
+.rule-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #FFF2C7;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.rule-explanation {
+    font-family: var(--font-literary);
+    font-size: 1.15rem;
+    color: var(--color-ivory);
+    line-height: 1.7;
+}
+
+/* Natural Keyboard Arrow Control Display */
+.controls-column {
+    display: flex;
+    justify-content: center;
+}
+
+.controls-display-box {
+    background: rgba(23, 17, 13, 0.85);
+    border: 1px solid rgba(201, 164, 92, 0.3);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: var(--shadow-deep);
+}
+
+.controls-heading {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    color: var(--color-gold-burnished);
+    margin-bottom: 2.2rem;
+    text-transform: uppercase;
+}
+
+.keyboard-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.key-row {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.keycap {
+    width: 68px;
+    height: 68px;
+    background: radial-gradient(circle at top, #382417 0%, #1E130B 70%, #0F0906 100%);
+    border: 1px solid var(--color-gold-antique);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(247, 213, 144, 0.4);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-snappy);
+}
+
+.keycap:hover {
+    border-color: var(--color-gold-radiant);
+    box-shadow: 0 0 20px rgba(201, 164, 92, 0.4), inset 0 0 10px rgba(227, 188, 115, 0.3);
+    transform: translateY(-2px);
+}
+
+.key-symbol {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #FFF2C7;
+    line-height: 1;
+}
+
+.key-label {
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--color-sandstone);
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+}
+
+.controls-note {
+    font-family: var(--font-literary);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--color-sandstone);
+    line-height: 1.5;
+}
+
+/* ===================================================================
+   FINAL SCREEN — KURUKSHETRA TITLE SCREEN
+   =================================================================== */
+
+.act-final-title {
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    padding: 8rem 2rem;
+}
+
+.title-screen-backdrop {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    filter: brightness(0.5) contrast(1.2);
+}
+
+.title-screen-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(8, 7, 6, 0.65) 0%, rgba(8, 7, 6, 0.92) 80%, #080706 100%);
+    z-index: 2;
+}
+
+.title-screen-container {
+    position: relative;
+    z-index: 3;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.monumental-pillars-framing {
+    position: absolute;
+    inset: -4rem 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.monumental-pillar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    opacity: 0.4;
+}
+
+.monumental-pillar.left {
+    left: 0;
+    border-right: 1px solid rgba(201, 164, 92, 0.2);
+    background: linear-gradient(90deg, rgba(8, 7, 6, 0.95) 0%, transparent 100%);
+}
+
+.monumental-pillar.right {
+    right: 0;
+    border-left: 1px solid rgba(201, 164, 92, 0.2);
+    background: linear-gradient(-90deg, rgba(8, 7, 6, 0.95) 0%, transparent 100%);
+}
+
+.title-chakravyuha-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 650px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.45;
+}
+
+.title-wheel-svg {
+    width: 100%;
+    height: 100%;
+    animation: rotateSlow 70s linear infinite;
+}
+
+.title-content-center {
+    position: relative;
+    z-index: 4;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.title-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    color: var(--color-gold-burnished);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(227, 188, 115, 0.4);
+}
+
+.grand-game-title {
+    font-family: var(--font-heading-cinematic);
+    font-size: clamp(2.5rem, 5.8vw, 4.6rem);
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    background: var(--grad-gold-metallic);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 25px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 35px rgba(201, 164, 92, 0.5));
+}
+
+.grand-game-title span {
+    display: inline-block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.grand-game-title span:hover {
+    transform: translateY(-4px) scale(1.04);
+}
+
+.grand-subtitle {
+    font-family: var(--font-heading);
+    font-size: clamp(0.85rem, 1.6vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    color: #FFF2C7;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9);
+}
+
+/* ===================================================================
+   EXACTLY ONE BUTTON: [ PRESS ANY BUTTON TO PLAY ]
+   =================================================================== */
+
+.sole-button-wrapper {
+    margin-bottom: 3.5rem;
+}
+
+.ceremonial-play-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.4rem 4rem;
+    background: radial-gradient(circle at center, #352115 0%, #1A100B 65%, #080706 100%);
+    border: 2px solid var(--color-gold-burnished);
+    border-radius: 3px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.95), 0 0 30px rgba(201, 164, 92, 0.35);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.ceremonial-play-button::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(247, 213, 144, 0.4);
+    pointer-events: none;
+}
+
+.btn-corner-engraving {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--color-gold-radiant);
+    border-style: solid;
+    pointer-events: none;
+}
+.btn-corner-engraving.top-l { top: 2px; left: 2px; border-width: 2px 0 0 2px; }
+.btn-corner-engraving.top-r { top: 2px; right: 2px; border-width: 2px 2px 0 0; }
+.btn-corner-engraving.bottom-l { bottom: 2px; left: 2px; border-width: 0 0 2px 2px; }
+.btn-corner-engraving.bottom-r { bottom: 2px; right: 2px; border-width: 0 2px 2px 0; }
+
+.btn-sheen-sweep {
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 80%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255, 242, 199, 0.3), transparent);
+    transform: rotate(25deg);
+    transition: left 0.8s ease;
+    pointer-events: none;
+}
+
+.ceremonial-play-button:hover .btn-sheen-sweep {
+    left: 170%;
+}
+
+.btn-primary-text {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    color: #FFF2C7;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(227, 188, 115, 0.6);
+    position: relative;
+    z-index: 2;
+}
+
+.ceremonial-play-button:hover {
+    border-color: #FFF2C7;
+    box-shadow: 0 0 60px rgba(201, 164, 92, 0.6), inset 0 0 30px rgba(227, 188, 115, 0.4);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.ceremonial-play-button:active {
+    transform: translateY(1px);
+}
+
+.ceremonial-play-button:focus-visible {
+    outline: 2px solid var(--color-gold-radiant);
+    outline-offset: 4px;
+}
+
+.game-version-tag {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--color-sandstone-dark);
+}
+
+/* ===================================================================
+   FOOTER (English Only, Non-Interactive)
+   =================================================================== */
+
+.prologue-footer {
+    background: #050403;
+    border-top: 1px solid rgba(201, 164, 92, 0.15);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-note {
+    font-family: var(--font-literary);
+    font-size: 0.95rem;
+    color: var(--color-sandstone);
+    line-height: 1.7;
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN (Media Queries)
+   =================================================================== */
+
+@media (max-width: 1024px) {
+    .narrative-beats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dialogue-cinematic-scene {
+        grid-template-columns: 1fr;
+    }
+
+    .seventh-circle-composition {
+        grid-template-columns: 1fr;
+    }
+
+    .rules-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .controls-display-box {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .act-section {
+        padding: 4.5rem 1.5rem;
+    }
+
+    .monumental-heading-glory {
+        font-size: 2.8rem;
+    }
+
+    .grand-game-title {
+        font-size: 3rem;
+    }
+
+    .ceremonial-play-button {
+        padding: 1.2rem 2.2rem;
+    }
+
+    .btn-primary-text {
+        font-size: 0.95rem;
+        letter-spacing: 0.18em;
+    }
+
+    .rules-stone-tablet {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .mission-stone-border {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .keycap {
+        width: 58px;
+        height: 58px;
+    }
+}
+
+/* ===================================================================
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .ambient-canvas {
+        display: none;
+    }
+
+    .concentric-ring, .title-wheel-svg {
+        animation: none !important;
+    }
+}

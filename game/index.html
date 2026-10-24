@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KURUKSHETRA</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        canvas.emscripten {
+            display: block;
+            border: none;
+            background-color: #000;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="game-container">
+        <canvas
+            class="emscripten"
+            id="canvas"
+            tabindex="0"
+            oncontextmenu="event.preventDefault()">
+        </canvas>
+    </main>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+
+        // Preserve the game's internal resolution.
+        // Only scale its visual display.
+        function resizeGame() {
+            const gameWidth = canvas.width || 1920;
+            const gameHeight = canvas.height || 1080;
+
+            const scale = Math.min(
+                window.innerWidth / gameWidth,
+                window.innerHeight / gameHeight
+            );
+
+            canvas.style.width = `${gameWidth * scale}px`;
+            canvas.style.height = `${gameHeight * scale}px`;
+        }
+
+        var Module = {
+            canvas: canvas,
+
+            print: function (...args) {
+                console.log(...args);
+            },
+
+            printErr: function (...args) {
+                console.error(...args);
+            },
+
+            setStatus: function (text) {
+                if (text) console.log(text);
+            },
+
+            monitorRunDependencies: function (remaining) {
+                if (remaining === 0) {
+                    requestAnimationFrame(resizeGame);
+                }
+            },
+
+            onRuntimeInitialized: function () {
+                requestAnimationFrame(resizeGame);
+            }
+        };
+
+        canvas.addEventListener("webglcontextlost", function (event) {
+            event.preventDefault();
+            console.error("WebGL context lost. Reload the page.");
+        });
+
+        // Keep the game centered when the browser changes size.
+        window.addEventListener("resize", resizeGame);
+
+        // Observe changes to the canvas's internal resolution.
+        const observer = new MutationObserver(resizeGame);
+        observer.observe(canvas, {
+            attributes: true,
+            attributeFilter: ["width", "height"]
+        });
+
+        resizeGame();
+    </script>
+
+    <!-- Emscripten-generated game loader -->
+    <script async src="index.js"></script>
+</body>
+</html>
